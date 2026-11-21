@@ -1,13 +1,13 @@
 # 🔐 Password Cracking & Hash Analysis Assessment (`W3-PM1` & `W3-PM2`)
-Executing Offline PDF Hash Extraction (`pdf2john.pl` & Networkwalks Hash Calculator) and Dictionary-Based Password Auditing (John the Ripper & Networkwalks Password Cracker) on Debian Linux within an authorized penetration testing scope.
+Executing Offline PDF Hash Extraction (`pdf2john` & Networkwalks Hash Calculator) and Dictionary-Based Password Auditing (John the Ripper & Networkwalks Password Cracker) on Kali Linux within an authorized penetration testing scope.
 
 ---
 
 ## 📌 Project Overview
 This repository documents the **Week 3 Practical Activities** (`W3-PM1` and `W3-PM2`) for the Networkwalks Cybersecurity & Ethical Hacking Internship (Batch **B084**).
 
-Per the Week 3 Project Guide requirements, both essential modules were completed natively on **Debian Linux**:
-1. **Essential Module 1 (`W3-PM1` – Password Cracking with JTR):** Extracting the `$pdf$` cryptographic hash from an encrypted PDF file (`My Locked PDF1.pdf`) using `/usr/share/john/pdf2john.pl`, saving the hash file (`hash1.txt`), and executing dictionary attacks using **John the Ripper (`john`)** on Debian Linux.
+Per the Week 3 Project Guide requirements, both essential modules were completed natively on **Kali Linux**:
+1. **Essential Module 1 (`W3-PM1` – Password Cracking with JTR):** Extracting the `$pdf$` cryptographic hash from an encrypted PDF file (`My Locked PDF1.pdf`) using `pdf2john`, saving the hash file (`hash1.txt`), and executing dictionary attacks using **John the Ripper (`john`)** on Kali Linux.
 2. **Essential Module 2 (`W3-PM2` – Password Cracking with Networkwalks Tools):** Using the browser-based **Networkwalks Hash Calculator** and **Networkwalks Password Cracker** tools to extract `$pdf$` hashes, run wordlist dictionary attacks, and unlock protected files.
 
 All activities were executed strictly within authorized educational boundaries using official Networkwalks lab files.
@@ -18,8 +18,8 @@ All activities were executed strictly within authorized educational boundaries u
 The main objectives of this Week 3 engagement are to:
 - **Cryptographic Foundations:**
   - Understand the core distinction between reversible **two-way encryption** and irreversible **one-way hashing**.
-- **Module 1 (`W3-PM1` – Password Cracking with John the Ripper on Debian Linux):**
-  - Install and verify John the Ripper (`john`) and `/usr/share/john/pdf2john.pl` on Debian Linux.
+- **Module 1 (`W3-PM1` – Password Cracking with John the Ripper on Kali Linux):**
+  - Verify John the Ripper (`john`) and `pdf2john` on Kali Linux.
   - Extract the crackable `$pdf$` hash from `My Locked PDF1.pdf` and save it into `hash1.txt`.
   - Generate a dictionary wordlist (`wordlist.txt`) and execute `john` to display the recovered password (`password1`).
 - **Module 2 (`W3-PM2` – Password Cracking with Networkwalks Tools):**
@@ -41,9 +41,9 @@ This assessment covers **Week 3 (`W3-PM1` & `W3-PM2`)** under strict rules of en
 ---
 
 ## 🏗️ Assessment Architecture
-The assessment demonstrates two end-to-end offline password auditing workflows executed from **Debian Linux**:
-- **Local CLI Auditing (`W3-PM1`):** Uses `perl /usr/share/john/pdf2john.pl` and **John the Ripper (`john`)** in a unified Debian Linux terminal workflow to extract and crack the PDF password hash offline.
-- **Browser-Based Auditing (`W3-PM2`):** Uses a web browser (Firefox ESR / Chromium) on Debian Linux to run the client-side **Networkwalks Hash Calculator** and **Networkwalks Password Cracker** tools without installing additional dependencies.
+The assessment demonstrates two end-to-end offline password auditing workflows executed from **Kali Linux**:
+- **Local CLI Auditing (`W3-PM1`):** Uses `pdf2john` and pre-installed **John the Ripper (`john`)** in a unified Kali Linux terminal workflow to extract and crack the PDF password hash offline.
+- **Browser-Based Auditing (`W3-PM2`):** Uses a web browser (Firefox ESR / Chromium) on Kali Linux to run the client-side **Networkwalks Hash Calculator** and **Networkwalks Password Cracker** tools without installing additional dependencies.
 
 ---
 
@@ -55,9 +55,9 @@ The assessment demonstrates two end-to-end offline password auditing workflows e
 | **🎓 Program / Batch** | B084 – Networkwalks Cybersecurity Internship |
 | **📅 Assessment Date** | *[DD Month YYYY]* |
 | **📦 Modules Completed** | `W3-PM1` (Password Cracking with JTR), `W3-PM2` (Password Cracking with NW Tools) |
-| **🐧 Assessment OS** | Debian Linux |
+| **🐉 Assessment OS** | Kali Linux |
 | **📄 Authorized Target File** | `My Locked PDF1.pdf` (`65.2 KB` – PDF Revision R4, Version V4, 128-bit) |
-| **🧰 Core Tools (`W3-PM1`)** | `perl /usr/share/john/pdf2john.pl`, John the Ripper (`john`) |
+| **🧰 Core Tools (`W3-PM1`)** | `pdf2john`, John the Ripper (`john`) |
 | **🌐 Core Web Tools (`W3-PM2`)** | Networkwalks Hash Calculator, Networkwalks Password Cracker |
 
 ---
@@ -65,27 +65,26 @@ The assessment demonstrates two end-to-end offline password auditing workflows e
 ## 🪜 Unified Execution Procedure & Findings (`W3-PM1` & `W3-PM2`)
 
 ### Step 1. Download Encrypted Target File (`My Locked PDF1.pdf`)
-- Downloaded `My Locked PDF1.pdf` (`65.2 KB`) from the official Networkwalks Week 3 lab portal (`https://networkwalks.com/project-task-lab-password-cracking-with-networkwalks-tools/`) into the Debian Linux working directory.
+- Downloaded `My Locked PDF1.pdf` (`65.2 KB`) from the official Networkwalks Week 3 lab portal (`https://networkwalks.com/project-task-lab-password-cracking-with-networkwalks-tools/`) into the Kali Linux working directory.
 
-### Step 2. Install & Verify John the Ripper on Debian Linux (`W3-PM1`)
-- Installed the `john` package via `apt` and verified both John the Ripper and `/usr/share/john/pdf2john.pl`:
+### Step 2. Verify John the Ripper on Kali Linux (`W3-PM1`)
+- Confirmed that John the Ripper (`john`) and `pdf2john` are pre-installed natively in Kali Linux:
   ```bash
-  sudo apt update && sudo apt install -y john
-  john --list=build-info | head -n 5 && ls -l /usr/share/john/pdf2john.pl
+  john --list=build-info | head -n 5 && which pdf2john
   ```
 - *(Windows Equivalent Reference: Download John the Ripper `1.9.0-jumbo-1-win64` and Johnny GUI `v2.2`, then link `john.exe` under **Settings** > **John the Ripper executable**).*
 
 > *(Upload your JTR version/setup screenshot to GitHub and replace the `src` link below)*
 <img alt="Step 2 - JTR Verification" src="screenshots/01-jtr-version.png" />
 
-### Step 3. Extract PDF Hash via CLI (`pdf2john.pl` -> `hash1.txt`) (`W3-PM1`)
-- Extracted the crackable `$pdf$` hash string from `My Locked PDF1.pdf` using Perl and saved it into `hash1.txt` without extra wrapper characters (`b'...'`):
+### Step 3. Extract PDF Hash via CLI (`pdf2john` -> `hash1.txt`) (`W3-PM1`)
+- Extracted the crackable `$pdf$` hash string from `My Locked PDF1.pdf` and saved it into `hash1.txt` without extra wrapper characters (`b'...'`):
   ```bash
-  perl /usr/share/john/pdf2john.pl "My Locked PDF1.pdf" > hash1.txt && cat hash1.txt
+  pdf2john "My Locked PDF1.pdf" > hash1.txt && cat hash1.txt
   ```
 - **Extracted Hash Format:** `$pdf$4*4*128*-1060*1*16*55d1a5c14175da449753199e44971d32*32*...`
 
-> *(Upload your `pdf2john.pl` hash extraction screenshot to GitHub and replace the `src` link below)*
+> *(Upload your `pdf2john` hash extraction screenshot to GitHub and replace the `src` link below)*
 <img alt="Step 3 - PDF2John Hash Extraction" src="screenshots/02-pdf2john-hash.png" />
 
 ### Step 4. Execute Dictionary Attack via John the Ripper (`W3-PM1`)
@@ -94,6 +93,7 @@ The assessment demonstrates two end-to-end offline password auditing workflows e
   printf "123456\npassword\nadmin\nletmein\nqwerty\npassword1\n" > wordlist.txt
   john --wordlist=wordlist.txt hash1.txt && john --show hash1.txt
   ```
+- *(Alternative: You can also run `john --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt` after unzipping `rockyou.txt.gz`).*
 - **Cracked Password (`W3-PM1`):** `password1`
 
 > *(Upload your JTR cracked output screenshot to GitHub and replace the `src` link below)*
@@ -115,7 +115,7 @@ The assessment demonstrates two end-to-end offline password auditing workflows e
 <img alt="Step 6 - Networkwalks Password Cracker" src="screenshots/05-nw-password-cracker.png" />
 
 ### Step 7. Unlock Encrypted PDF & Capture Completion Flag (`W3-PM1` & `W3-PM2`)
-- Opened `My Locked PDF1.pdf` in the Debian PDF viewer (or decrypted via `qpdf --password=password1 --decrypt "My Locked PDF1.pdf" unlocked.pdf`) and entered the recovered password (`password1`).
+- Opened `My Locked PDF1.pdf` in the Kali Linux PDF viewer (or decrypted via `qpdf --password=password1 --decrypt "My Locked PDF1.pdf" unlocked.pdf`) and entered the recovered password (`password1`).
 - Confirmed full document decryption and captured the completion message:
   > *"Congratulations! You have captured your 1st flag."*
 
@@ -124,23 +124,20 @@ The assessment demonstrates two end-to-end offline password auditing workflows e
 
 ---
 
-## 💻 Complete All-in-One Debian Terminal Reference (`W3-PM1`)
+## 💻 Complete All-in-One Kali Linux Terminal Reference (`W3-PM1`)
 ```bash
-# 1. Install John the Ripper (includes pdf2john.pl) if not already installed
-sudo apt update && sudo apt install -y john
+# 1. Verify John the Ripper and pdf2john are installed on Kali Linux
+john --list=build-info | head -n 5 && which pdf2john
 
-# 2. Verify John the Ripper and locate pdf2john.pl on Debian
-john --list=build-info | head -n 5 && ls -l /usr/share/john/pdf2john.pl
+# 2. Extract the PDF hash into hash1.txt and verify its contents
+pdf2john "My Locked PDF1.pdf" > hash1.txt && cat hash1.txt
 
-# 3. Extract the PDF hash into hash1.txt and verify its contents
-perl /usr/share/john/pdf2john.pl "My Locked PDF1.pdf" > hash1.txt && cat hash1.txt
-
-# 4. Prepare a wordlist and run the dictionary attack, then show the cracked password
+# 3. Prepare a wordlist and run the dictionary attack, then show the cracked password
 printf "123456\npassword\nadmin\nletmein\nqwerty\npassword1\n" > wordlist.txt
 john --wordlist=wordlist.txt hash1.txt && john --show hash1.txt
 
-# 5. Print the clean standalone $pdf$ hash string without the filename prefix (for W3-PM2)
-perl /usr/share/john/pdf2john.pl "My Locked PDF1.pdf" | cut -d':' -f2
+# 4. Print the clean standalone $pdf$ hash string without the filename prefix (for W3-PM2)
+pdf2john "My Locked PDF1.pdf" | cut -d':' -f2
 ```
 
 ---
@@ -152,7 +149,7 @@ perl /usr/share/john/pdf2john.pl "My Locked PDF1.pdf" | cut -d':' -f2
 | ⚠️ Finding | 🧾 Evidence | 🎯 Potential Impact | 🚦 Risk Level |
 | :--- | :--- | :--- | :--- |
 | **Weak Dictionary-Based PDF Password** | Both JTR (`W3-PM1`) and NW Password Cracker (`W3-PM2`) recovered `password1` in seconds | Anyone obtaining the encrypted PDF can trivially unlock and read confidential contents | **Critical** |
-| **Extractable 128-Bit PDF Hash Verifier** | `pdf2john.pl` & NW Hash Calculator extracted `$pdf$4*4*128` hash | Enables high-speed offline brute-force and dictionary attacks without lockout limits | **Medium** |
+| **Extractable 128-Bit PDF Hash Verifier** | `pdf2john` & NW Hash Calculator extracted `$pdf$4*4*128` hash | Enables high-speed offline brute-force and dictionary attacks without lockout limits | **Medium** |
 
 ### Key Cryptographic Takeaways
 - **Encryption vs. Hashing:** Encryption is a reversible **two-way** function requiring a key for decryption, whereas hashing is a **one-way** mathematical function that produces a unique message digest.
@@ -169,31 +166,29 @@ perl /usr/share/john/pdf2john.pl "My Locked PDF1.pdf" | cut -d':' -f2
 ---
 
 ## 📦 Week 3 Deliverables Checklist
-- [x] **Essential Module 1 (`W3-PM1`):** Completed all steps on Debian Linux—installed/verified JTR, extracted `$pdf$` hash into `hash1.txt`, cracked `password1`, and unlocked `My Locked PDF1.pdf`.
+- [x] **Essential Module 1 (`W3-PM1`):** Completed all steps on Kali Linux—verified JTR, extracted `$pdf$` hash into `hash1.txt`, cracked `password1`, and unlocked `My Locked PDF1.pdf`.
 - [x] **Essential Module 2 (`W3-PM2`):** Completed all steps—extracted `$pdf$` hash via Networkwalks Hash Calculator, cracked `password1` via Networkwalks Password Cracker, unlocked the PDF, and captured the 1st flag.
 
 ---
 
 ## 🐞 Problems Encountered & Solutions
 
-### Problem 1. `pdf2john` Command & `rockyou.txt` Not Pre-Configured on Standard Debian Linux
-Unlike Kali Linux, standard Debian Linux does not place `pdf2john` directly in `/usr/bin/` or ship with `/usr/share/wordlists/rockyou.txt` pre-installed.
+### Problem 1. Compressed Wordlist (`rockyou.txt.gz`) on Fresh Kali Linux Builds
+On fresh Kali Linux installations, `/usr/share/wordlists/rockyou.txt.gz` is compressed by default, which causes `john` to fail if pointed directly to an unextracted `rockyou.txt` path.
 
 **Solution:**
-Installed `john` via `apt`, invoked the helper script directly via `perl /usr/share/john/pdf2john.pl`, and generated a clean local `wordlist.txt` file for immediate dictionary verification:
+Created a lightweight, verified local dictionary file (`wordlist.txt`) for immediate testing (or extracted `rockyou.txt.gz` via `sudo gunzip /usr/share/wordlists/rockyou.txt.gz`):
 ```bash
-sudo apt install -y john
-perl /usr/share/john/pdf2john.pl "My Locked PDF1.pdf" > hash1.txt
 printf "123456\npassword\nadmin\nletmein\nqwerty\npassword1\n" > wordlist.txt
 john --wordlist=wordlist.txt hash1.txt
 ```
 
-### Problem 2. Formatting & Filename Prefix in `pdf2john.pl` Output
-When running `perl /usr/share/john/pdf2john.pl "My Locked PDF1.pdf" > hash1.txt`, the output prepends the filename (`My Locked PDF1.pdf:$pdf$...`) to the hash line, whereas pasting into browser-based tools requires a standalone `$pdf$...` string without prefixes or `b'...'` wrappers.
+### Problem 2. Formatting & Filename Prefix in `pdf2john` Output
+When running `pdf2john "My Locked PDF1.pdf" > hash1.txt`, the output prepends the filename (`My Locked PDF1.pdf:$pdf$...`) to the hash line, whereas pasting into browser-based tools requires a standalone `$pdf$...` string without prefixes or `b'...'` wrappers.
 
 **Solution:**
-Used `cut -d':' -f2` when extracting a standalone `$pdf$` hash string for browser tools while keeping the standard `pdf2john.pl` output format in `hash1.txt` for John the Ripper:
+Used `cut -d':' -f2` when extracting a standalone `$pdf$` hash string for browser tools while keeping the standard `pdf2john` output format in `hash1.txt` for John the Ripper:
 ```bash
 # Clean hash string starting with $pdf$
-perl /usr/share/john/pdf2john.pl "My Locked PDF1.pdf" | cut -d':' -f2
+pdf2john "My Locked PDF1.pdf" | cut -d':' -f2
 ```
