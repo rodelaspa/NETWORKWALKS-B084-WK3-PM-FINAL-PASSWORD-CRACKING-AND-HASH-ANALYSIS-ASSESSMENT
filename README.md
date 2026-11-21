@@ -107,24 +107,28 @@ The assessment demonstrates two end-to-end offline password auditing workflows e
 - Verified the locally parsed `pdf2john` / Hashcat-compatible hash starting with `$pdf$4*4*128...` and clicked **Copy** to copy the full hash string.
 
 
-<img width="2559" height="1428" alt="image" src="https://github.com/user-attachments/assets/6edb7262-820e-467c-b9f7-0b5891cc0311" />
+<img width="2559" height="1424" alt="image" src="https://github.com/user-attachments/assets/6f2ab8a4-ae3d-4ce3-a02f-813409e38680" />
 
 
 ### Step 6. Execute Dictionary Attack via Networkwalks Password Cracker (`W3-PM2`)
-- Opened `https://networkwalks.com/password-cracker/` in the browser, pasted the copied `$pdf$` hash into the **PDF HASH (`$PDF$...`)** field, kept the active built-in wordlist (`100 words`), and clicked **START CRACKING**.
+- Opened `https://networkwalks.com/password-cracker/` in the browser, pasted the copied `$pdf$` hash into the **PDF HASH (`$PDF$...`)** field, kept the active built-in wordlist (`100 words`) and uploaded the JTR_default_password.txt, and clicked **START CRACKING**.
 - **Attack Progress:** `Tried: 91 / 100` (`[+] MATCH password1`)
 - **Cracked Password (`W3-PM2`):** `password1`
 
-> *(Upload your Networkwalks Password Cracker screenshot to GitHub and replace the `src` link below)*
-<img alt="Step 6 - Networkwalks Password Cracker" src="screenshots/05-nw-password-cracker.png" />
+
+<img width="2532" height="1437" alt="image" src="https://github.com/user-attachments/assets/d5e4bbb8-61bd-4342-af56-99ea7a6faa50" />
+
 
 ### Step 7. Unlock Encrypted PDF & Capture Completion Flag (`W3-PM1` & `W3-PM2`)
 - Opened `My Locked PDF1.pdf` in the Kali Linux PDF viewer (or decrypted via `qpdf --password=password1 --decrypt "My Locked PDF1.pdf" unlocked.pdf`) and entered the recovered password (`password1`).
 - Confirmed full document decryption and captured the completion message:
   > *"Congratulations! You have captured your 1st flag."*
 
-> *(Upload your unlocked PDF flag screenshot to GitHub and replace the `src` link below)*
-<img alt="Step 7 - Unlocked PDF Flag" src="screenshots/06-unlocked-pdf-flag.png" />
+**W3-PM1**
+<img width="2559" height="1599" alt="image" src="https://github.com/user-attachments/assets/838af8b5-0209-4592-ade6-d4379a4a8d66" />
+
+**W3-PM2**
+<img width="2559" height="1565" alt="image" src="https://github.com/user-attachments/assets/54706aa9-6214-4a9d-aefa-f91dcc76c1fe" />
 
 ---
 
