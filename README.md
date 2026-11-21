@@ -96,17 +96,19 @@ The assessment demonstrates two end-to-end offline password auditing workflows e
   john --wordlist=wordlist.txt hash1.txt && john --show hash1.txt
   ```
 - *(Alternative: You can also run `john --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt` after unzipping `rockyou.txt.gz`).*
-- **Cracked Password (`W3-PM1`):** `password1`
+- **Cracked Password (`W3-PM1`):** `good-luck`
 
-> *(Upload your JTR cracked output screenshot to GitHub and replace the `src` link below)*
-<img alt="Step 4 - JTR Cracked Password" src="screenshots/03-jtr-cracked.png" />
+
+<img width="2559" height="1526" alt="image" src="https://github.com/user-attachments/assets/b7889dfd-4453-4c99-91aa-81551389f9a7" />
+
 
 ### Step 5. Extract PDF Hash via Networkwalks Hash Calculator (`W3-PM2`)
 - Opened `https://networkwalks.com/hash-calculator/` in the browser, selected the **PDF** tab, and uploaded `My Locked PDF1.pdf`.
 - Verified the locally parsed `pdf2john` / Hashcat-compatible hash starting with `$pdf$4*4*128...` and clicked **Copy** to copy the full hash string.
 
-> *(Upload your Networkwalks Hash Calculator screenshot to GitHub and replace the `src` link below)*
-<img alt="Step 5 - Networkwalks Hash Calculator" src="screenshots/04-nw-hash-calculator.png" />
+
+<img width="2559" height="1428" alt="image" src="https://github.com/user-attachments/assets/6edb7262-820e-467c-b9f7-0b5891cc0311" />
+
 
 ### Step 6. Execute Dictionary Attack via Networkwalks Password Cracker (`W3-PM2`)
 - Opened `https://networkwalks.com/password-cracker/` in the browser, pasted the copied `$pdf$` hash into the **PDF HASH (`$PDF$...`)** field, kept the active built-in wordlist (`100 words`), and clicked **START CRACKING**.
