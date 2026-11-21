@@ -74,19 +74,20 @@ The assessment demonstrates two end-to-end offline password auditing workflows e
   ```
 - *(Windows Equivalent Reference: Download John the Ripper `1.9.0-jumbo-1-win64` and Johnny GUI `v2.2`, then link `john.exe` under **Settings** > **John the Ripper executable**).*
 
+
 <img width="2559" height="1552" alt="image" src="https://github.com/user-attachments/assets/2c7056d1-b652-43d2-856f-ad3df36ca8e5" />
 
-<img alt="Step 2 - JTR Verification" src="screenshots/01-jtr-version.png" />
 
 ### Step 3. Extract PDF Hash via CLI (`pdf2john` -> `hash1.txt`) (`W3-PM1`)
 - Extracted the crackable `$pdf$` hash string from `My Locked PDF1.pdf` and saved it into `hash1.txt` without extra wrapper characters (`b'...'`):
   ```bash
   pdf2john "My Locked PDF1.pdf" > hash1.txt && cat hash1.txt
   ```
-- **Extracted Hash Format:** `$pdf$4*4*128*-1060*1*16*55d1a5c14175da449753199e44971d32*32*...`
+- **Extracted Hash Format:** `$pdf$4*4*128*-1028*1*16*ca7f72f11459cba469f1005a8765ed51*32*f32d8fa1bfbe2648226dffc39f7909ea0021446990b9e4114071a4d9104984c1*32*9322f50c29569712067a775264635e4954ccb1b99e209d664984054ffad30a6a`
 
-> *(Upload your `pdf2john` hash extraction screenshot to GitHub and replace the `src` link below)*
-<img alt="Step 3 - PDF2John Hash Extraction" src="screenshots/02-pdf2john-hash.png" />
+
+<img width="2559" height="1520" alt="image" src="https://github.com/user-attachments/assets/6511dafa-92ed-408c-9a52-ea6a10184a11" />
+
 
 ### Step 4. Execute Dictionary Attack via John the Ripper (`W3-PM1`)
 - Created a targeted dictionary wordlist (`wordlist.txt`), ran John the Ripper against `hash1.txt`, and displayed the cracked plaintext password (equivalent to clicking **Open password file** > **Start new attack** in Johnny GUI):
