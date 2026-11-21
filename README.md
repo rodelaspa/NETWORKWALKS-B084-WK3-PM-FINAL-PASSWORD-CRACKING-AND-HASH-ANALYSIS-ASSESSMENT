@@ -53,10 +53,10 @@ The assessment demonstrates two end-to-end offline password auditing workflows e
 | :--- | :--- |
 | **👤 Pentester Name** | Rodel L. Aspa |
 | **🎓 Program / Batch** | B084 – Networkwalks Cybersecurity Internship |
-| **📅 Assessment Date** | *[DD Month YYYY]* |
+| **📅 Assessment Date** | *[21 November 2026]* |
 | **📦 Modules Completed** | `W3-PM1` (Password Cracking with JTR), `W3-PM2` (Password Cracking with NW Tools) |
 | **🐉 Assessment OS** | Kali Linux |
-| **📄 Authorized Target File** | `My Locked PDF1.pdf` (`65.2 KB` – PDF Revision R4, Version V4, 128-bit) |
+| **📄 Authorized Target File** |  `My Locked PDF1.pdf`, `My Locked PDF2.pdf` *(PDF Revision R4, Version V4, 128-bit)*  |
 | **🧰 Core Tools (`W3-PM1`)** | `pdf2john`, John the Ripper (`john`) |
 | **🌐 Core Web Tools (`W3-PM2`)** | Networkwalks Hash Calculator, Networkwalks Password Cracker |
 
@@ -125,9 +125,11 @@ The assessment demonstrates two end-to-end offline password auditing workflows e
   > *"Congratulations! You have captured your 1st flag."*
 
 **W3-PM1**
+
 <img width="2559" height="1599" alt="image" src="https://github.com/user-attachments/assets/838af8b5-0209-4592-ade6-d4379a4a8d66" />
 
 **W3-PM2**
+
 <img width="2559" height="1565" alt="image" src="https://github.com/user-attachments/assets/54706aa9-6214-4a9d-aefa-f91dcc76c1fe" />
 
 ---
