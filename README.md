@@ -74,7 +74,8 @@ The assessment demonstrates two end-to-end offline password auditing workflows e
   ```
 - *(Windows Equivalent Reference: Download John the Ripper `1.9.0-jumbo-1-win64` and Johnny GUI `v2.2`, then link `john.exe` under **Settings** > **John the Ripper executable**).*
 
-> *(Upload your JTR version/setup screenshot to GitHub and replace the `src` link below)*
+<img width="2559" height="1552" alt="image" src="https://github.com/user-attachments/assets/2c7056d1-b652-43d2-856f-ad3df36ca8e5" />
+
 <img alt="Step 2 - JTR Verification" src="screenshots/01-jtr-version.png" />
 
 ### Step 3. Extract PDF Hash via CLI (`pdf2john` -> `hash1.txt`) (`W3-PM1`)
